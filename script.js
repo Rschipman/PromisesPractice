@@ -78,18 +78,23 @@ const fakeRequestPromise = (url) => {
 //     console.log("Oh No!! Error!! (page 1)");
 //   });
 
-fakeRequestPromise("yelp.com/api/coffee/page1")
-  .then(() => {
-    console.log("It worked!! (page 1)");
-    return fakeRequestPromise("yelp.com/api/coffee/page2");
-  })
-  .then(() => {
-    console.log("It worked (page 2)");
-    return fakeRequestPromise("yelp.com/api/coffee/page3");
-  })
-  .then(() => {
-    console.log("It worked!! (page 3)");
-  })
-  .catch(() => {
-    console.log("Error! A request failed");
-  });
+// Working with promises
+// fakeRequestPromise("yelp.com/api/coffee/page1")
+//   .then((data) => {
+//     console.log("It worked!! (page 1)");
+//     console.log(data);
+//     return fakeRequestPromise("yelp.com/api/coffee/page2");
+//   })
+//   .then((data) => {
+//     console.log("It worked (page 2)");
+//     console.log(data);
+//     return fakeRequestPromise("yelp.com/api/coffee/page3");
+//   })
+//   .then((data) => {
+//     console.log("It worked!! (page 3)");
+//     console.log(data);
+//   })
+//   .catch((err) => {
+//     console.log("Error! A request failed");
+//     console.log(err);
+//   });
