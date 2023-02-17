@@ -98,3 +98,19 @@ const fakeRequestPromise = (url) => {
 //     console.log("Error! A request failed");
 //     console.log(err);
 //   });
+
+// CREATING PROMISES
+// new Promise((resolve, reject) => {
+//   resolve();
+// });
+
+const fakeRequest = (url) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, 1000);
+  });
+};
+fakeRequest("dogs/1").then(() => {
+  console.log("Done with Request");
+});
