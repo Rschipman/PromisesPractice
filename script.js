@@ -24,33 +24,39 @@ const fakeRequestPromise = (url) => {
 };
 
 // THE CALLBACK VERSION CONT.
-fakeRequestCallback(
-  "books.com/page1",
-  function (response) {
-    console.log("IT WORKED");
-    console.log(response);
-    fakeRequestCallback(
-      "books.com/page2",
-      function (response) {
-        console.log("IT WORKED AGAIN");
-        console.log(response);
-        fakeRequestCallback(
-          "books.com/page3",
-          function (response) {
-            console.log("It WORKED AGAIN (3rd req)!!!");
-            console.log(response);
-          },
-          function (err) {
-            console.log("Error 3rd req");
-          }
-        );
-      },
-      function (err) {
-        console.log("ERROR (2nd req)!!!", err);
-      }
-    );
-  },
-  function (err) {
-    console.log("Error!!", err);
-  }
-);
+// fakeRequestCallback(
+//   "books.com/page1",
+//   function (response) {
+//     console.log("IT WORKED");
+//     console.log(response);
+//     fakeRequestCallback(
+//       "books.com/page2",
+//       function (response) {
+//         console.log("IT WORKED AGAIN");
+//         console.log(response);
+//         fakeRequestCallback(
+//           "books.com/page3",
+//           function (response) {
+//             console.log("It WORKED AGAIN (3rd req)!!!");
+//             console.log(response);
+//           },
+//           function (err) {
+//             console.log("Error 3rd req");
+//           }
+//         );
+//       },
+//       function (err) {
+//         console.log("ERROR (2nd req)!!!", err);
+//       }
+//     );
+//   },
+//   function (err) {
+//     console.log("Error!!", err);
+//   }
+// );
+
+//  THE PROMISE VERSION CONT.
+const request = fakeRequestPromise("yelp.com/api/coffe");
+request.then(() => {
+  console.log("IT WORKED!!!");
+});
