@@ -56,7 +56,24 @@ const fakeRequestPromise = (url) => {
 // );
 
 //  THE PROMISE VERSION CONT.
-const request = fakeRequestPromise("yelp.com/api/coffe");
-request.then(() => {
-  console.log("IT WORKED!!!");
-});
+fakeRequestPromise("yelp.com/api/coffe/page1")
+  .then(() => {
+    console.log("IT WORKED!!! (page 1)");
+    fakeRequestPromise("yelp.com/api/coffe/page2")
+      .then(() => {
+        console.log("IT WORKED!!! (page 2)");
+        fakeRequestPromise("yelp.com/api/coffe/page3")
+          .then(() => {
+            console.log("IT WORKED!!! (page 3)");
+          })
+          .catch(() => {
+            console.log("Oh no!! Error!! (page 3)");
+          });
+      })
+      .catch(() => {
+        console.log("Oh No!! Error!! (page 2)");
+      });
+  })
+  .catch(() => {
+    console.log("Oh No!! Error!! (page 1)");
+  });
